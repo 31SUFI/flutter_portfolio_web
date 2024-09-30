@@ -1,0 +1,9 @@
+[build]
+  command = "flutter build web"
+  publish = "build/web"
+
+[build.environment]
+  PUB_CACHE = "/opt/build/cache/.pub-cache"
+
+[build.lifecycle.onPreBuild]
+  command = "git clone https://github.com/flutter/flutter.git -b stable --depth 1 && flutter/bin/flutter doctor"
