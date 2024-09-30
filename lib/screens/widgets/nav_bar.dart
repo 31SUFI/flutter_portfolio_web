@@ -50,12 +50,12 @@ class NavBar extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(FontAwesomeIcons.whatsapp,
-                      color: Colors.white, size: 20),
+                      color: Colors.black, size: 20),
                   SizedBox(width: 5),
                   Text(
                     'Whatsapp',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),

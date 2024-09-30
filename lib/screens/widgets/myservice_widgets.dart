@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_web/constants/colors.dart';
 import 'package:portfolio_web/screens/widgets/text_widet.dart';
@@ -100,7 +99,7 @@ class _MyServicesWidgetState extends State<MyServicesWidget> {
                           ),
                           TextWidget(
                             sSize: widget.size,
-                            text: "Branding Desing",
+                            text: "Branding Design",
                             size: 20,
                             color: Colors.white,
                           ),
