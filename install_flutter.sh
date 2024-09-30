@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Install Flutter
+# Clone Flutter stable branch
 git clone https://github.com/flutter/flutter.git -b stable --depth 1
 export PATH="$PATH:`pwd`/flutter/bin"
 
-# Run Flutter Doctor to ensure setup is complete
+# Run flutter doctor to complete installation
 flutter doctor
+
+# Enable web support for Flutter
+flutter config --enable-web
