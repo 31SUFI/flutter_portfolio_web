@@ -15,8 +15,11 @@ class NavBar extends StatelessWidget {
         // Logo Section
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
-          child: Icon(Icons.adb,
-              color: Colors.white, size: 40), // Placeholder for your logo
+          child: Image.asset(
+            "assets/images/logo.png",
+            height: 100,
+            width: 100,
+          ), // Placeholder for your logo
         ),
 
         // Nav Links

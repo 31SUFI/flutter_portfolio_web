@@ -90,10 +90,10 @@ class _TabletLayoutState extends State<TabletLayout> {
                   // Left-aligned logo
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Icon(
-                      Icons.adb, // Placeholder for your logo
-                      color: Colors.white,
-                      size: 40,
+                    child: Image.asset(
+                      "assets/images/logo.png",
+                      height: 100,
+                      width: 100,
                     ),
                   ),
                   // Right-aligned menu button (drawer icon)

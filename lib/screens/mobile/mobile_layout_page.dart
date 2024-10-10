@@ -37,12 +37,12 @@ class _MobileLayoutState extends State<MobileLayout> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // Left-aligned logo
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Icon(
-                      Icons.adb, // Placeholder logo
-                      color: Colors.white,
-                      size: 40,
+                    child: Image.asset(
+                      "assets/images/logo.png",
+                      height: 100,
+                      width: 100,
                     ),
                   ),
                   // Right-aligned menu button (drawer icon)
