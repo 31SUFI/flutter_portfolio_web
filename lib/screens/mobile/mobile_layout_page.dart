@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio_web/constants/colors.dart';
+
 import 'package:portfolio_web/constants/styles.dart';
+import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
 import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
 import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
-import 'package:portfolio_web/screens/widgets/myservice_widgets.dart';
+
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/screens/widgets/social_widget.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
+
 import 'package:portfolio_web/screens/widgets/custom_drawer.dart'; // Import the custom drawer
 
 class MobileLayout extends StatefulWidget {
@@ -107,48 +108,12 @@ class _MobileLayoutState extends State<MobileLayout> {
                         ),
                       ],
                     ),
-                    // SizedBox(
-                    //   height: size.width * 0.09,
-                    // ),
-                    // "My Quality Services" section
-                    // Container(
-                    //   padding:
-                    //       EdgeInsets.symmetric(vertical: size.width * 0.05),
-                    //   color: AppColors.ebony,
-                    //   child: Column(
-                    //     children: [
-                    //       GradientText(
-                    //         "My Quality Services",
-                    //         colors: [
-                    //           AppColors.studio,
-                    //           AppColors.paleSlate,
-                    //         ],
-                    //         style: TextStyle(
-                    //             fontSize: size.width *
-                    //                 0.05, // Adjust font size for mobile
-                    //             fontFamily: 'Poppins',
-                    //             fontWeight: FontWeight.bold),
-                    //       ),
-                    //       SizedBox(
-                    //         height: size.height * 0.02,
-                    //       ),
-                    //       Text(
-                    //         'We put your ideas and thus your wishes in the form of a unique web project that inspires you and your customers.',
-                    //         style: TextStyle(
-                    //             fontSize: size.width *
-                    //                 0.022, // Adjust font size for mobile
-                    //             fontFamily: 'Poppins',
-                    //             fontWeight: FontWeight.w400,
-                    //             color: Colors.white),
-                    //         textAlign: TextAlign.center,
-                    //       ),
-                    //       SizedBox(
-                    //         height: size.height * 0.05,
-                    //       ),
-                    //       MyServicesWidget(size: size),
-                    //     ],
-                    //   ),
-                    // )
+                    SizedBox(
+                      height: size.width * 0.09,
+                    ),
+                    AboutMeWidget(
+                      size: size,
+                    )
                   ],
                 ),
               ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio_web/constants/colors.dart';
+import 'package:portfolio_web/constants/colors.dart'; // Import your color constants if necessary
 
 class NavBar extends StatelessWidget {
   final Size size;
@@ -9,66 +8,37 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        // Logo Section
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
-          child: Image.asset(
+    return Container(
+      height: 100, // You can adjust this height based on your needs
+      padding:
+          EdgeInsets.symmetric(horizontal: 20.0), // Horizontal padding only
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment:
+            CrossAxisAlignment.start, // Align the logo to the top
+        children: [
+          // Logo at top left with no extra padding
+          Image.asset(
             "assets/images/logo.png",
-            height: 100,
-            width: 100,
-          ), // Placeholder for your logo
-        ),
-
-        // Nav Links
-        Row(
-          children: [
-            NavBarItem(text: "Home", onTap: () {}),
-            NavBarItem(text: "About us", onTap: () {}),
-            NavBarItem(text: "Projects", onTap: () {}),
-            NavBarItem(text: "Certifications", onTap: () {}),
-            NavBarItem(text: "Achievements", onTap: () {}),
-          ],
-        ),
-
-        // WhatsApp Button
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  AppColors.studio,
-                  AppColors.paleSlate,
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
-              child: Row(
-                children: [
-                  Icon(FontAwesomeIcons.whatsapp,
-                      color: Colors.black, size: 20),
-                  SizedBox(width: 5),
-                  Text(
-                    'Whatsapp',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            height: 100, // Increase the size of the logo here
+            width:
+                100, // You can increase the size, but without adding top space
+            fit: BoxFit
+                .contain, // Ensures the image fits within the height and width
           ),
-        ),
-      ],
+
+          // Nav Links aligned to the right
+          Row(
+            children: [
+              NavBarItem(text: "Home", onTap: () {}),
+              NavBarItem(text: "About us", onTap: () {}),
+              NavBarItem(text: "Projects", onTap: () {}),
+              NavBarItem(text: "Certifications", onTap: () {}),
+              NavBarItem(text: "Achievements", onTap: () {}),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -91,7 +61,7 @@ class NavBarItem extends StatelessWidget {
             color: Colors.white,
             fontSize: 18,
             fontFamily: 'Poppins',
-            //   fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
