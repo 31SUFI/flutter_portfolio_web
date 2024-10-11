@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_web/constants/colors.dart';
 import 'package:portfolio_web/constants/styles.dart';
+import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
 import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
 import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
 import 'package:portfolio_web/screens/widgets/myservice_widgets.dart';
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/screens/widgets/social_widget.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart'; // Import GradientText
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class TabletLayout extends StatefulWidget {
   const TabletLayout({super.key});
@@ -21,7 +22,6 @@ class _TabletLayoutState extends State<TabletLayout> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // Change from 'drawer' to 'endDrawer' to make it appear from the right
       endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -121,7 +121,6 @@ class _TabletLayoutState extends State<TabletLayout> {
 
               // Main content
               Container(
-                //margin: EdgeInsets.symmetric(vertical: size.height * 0.18),
                 child: Column(
                   children: [
                     Row(
@@ -139,66 +138,21 @@ class _TabletLayoutState extends State<TabletLayout> {
                                 children: [RotatingImageContainer()],
                               ),
                             ),
-                            SizedBox(
-                              height: size.width * 0.09,
-                            ),
+                            SizedBox(height: size.width * 0.09),
                             Row(
                               children: [
-                                HeaderTextWidget(
-                                  size: size,
-                                ),
+                                HeaderTextWidget(size: size),
                               ],
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
+                            SizedBox(height: 20),
                             Social_Tab(size: size)
                           ],
                         ),
                       ],
                     ),
-                    // Add My Quality Services section here
-                    SizedBox(
-                      height: size.height * 0.05,
-                    ),
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: size.width * 0.05),
-                      color: AppColors.ebony,
-                      child: Column(
-                        children: [
-                          GradientText(
-                            "My Quality Services",
-                            colors: [
-                              AppColors.studio,
-                              AppColors.paleSlate,
-                            ],
-                            style: TextStyle(
-                                fontSize: size.width *
-                                    0.045, // Adjust size for tablets
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: size.height * 0.02,
-                          ),
-                          Text(
-                            'We put your ideas and thus your wishes in the form of a unique web project that inspires you and your customers.',
-                            style: TextStyle(
-                                fontSize: size.width *
-                                    0.020, // Adjust size for tablets
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w400,
-                                color: Colors.white),
-                            textAlign: TextAlign.center,
-                          ),
-                          SizedBox(
-                            height: size.height * 0.05,
-                          ),
-                          MyServicesWidget(size: size),
-                        ],
-                      ),
-                    ),
+                    SizedBox(height: size.height * 0.05),
+                    SizedBox(height: size.height * 0.02),
+                    AboutMeWidget(size: size),
                   ],
                 ),
               ),
@@ -227,9 +181,7 @@ class Social_Tab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           DownloadCVButton(),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
           SocialWidget(),
         ],
       ),

@@ -15,47 +15,44 @@ class AboutMeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // Set font sizes based on screen width
     double titleFontSize = isMobile(size)
-        ? size.width * 0.06
+        ? size.width * 0.06 // Mobile font size
         : isTablet(size)
-            ? size.width * 0.05
-            : size.width * 0.03;
+            ? size.width * 0.040 // Tablet font size
+            : size.width * 0.030; // Desktop font size
+
     double subheadingFontSize = isMobile(size)
-        ? size.width * 0.045
+        ? size.width * 0.040 // Mobile font size
         : isTablet(size)
-            ? size.width * 0.050
-            : size.width * 0.015;
+            ? size.width * 0.03 // Tablet font size
+            : size.width * 0.02; // Desktop font size
+
     double contentFontSize = isMobile(size)
-        ? size.width * 0.04
+        ? size.width * 0.03 // Mobile font size
         : isTablet(size)
-            ? size.width * 0.0100
-            : size.width * 0.012;
+            ? size.width * 0.020 // Tablet font size
+            : size.width * 0.015; // Desktop font size
 
     return Container(
       color: AppColors.ebony,
       padding: EdgeInsets.symmetric(
         vertical: size.height * 0.05,
-        horizontal: size.width *
-            0.08, // Padding to avoid text being too close to the left
+        horizontal: size.width * 0.08,
       ),
       child: Column(
-        crossAxisAlignment:
-            CrossAxisAlignment.start, // Align content to the left
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // About Me title with dynamic font size
+          // About Me title
           GradientText(
             "About Me",
-            colors: [
-              AppColors.studio,
-              AppColors.paleSlate,
-            ],
+            colors: [AppColors.studio, AppColors.paleSlate],
             style: TextStyle(
-                fontSize: titleFontSize, // Adjusted for responsiveness
+                fontSize: titleFontSize,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: size.height * 0.03), // Spacing after the title
+          SizedBox(height: size.height * 0.02),
 
-          // Who am I? section with dynamic font size
+          // Who am I? section
           Text(
             'Who am I?',
             style: TextStyle(
@@ -67,9 +64,9 @@ class AboutMeWidget extends StatelessWidget {
           ),
           SizedBox(height: size.height * 0.02),
 
-          // Main introduction text with dynamic font size
+          // Main introduction text
           Text(
-            "I'm Muhammad Sufiyan, a Flutter developer, Student and technical trainer.",
+            "I'm Muhammad Sufiyan, a Flutter Developer, a Student, and a Technical Trainer.",
             style: TextStyle(
               fontSize: contentFontSize,
               fontFamily: 'Poppins',
@@ -79,12 +76,12 @@ class AboutMeWidget extends StatelessWidget {
           ),
           SizedBox(height: size.height * 0.02),
 
-          // Main body text with dynamic font size and proper padding
+          // Main body text
           Padding(
             padding: EdgeInsets.only(right: size.width * 0.05),
             child: Text(
-              "I'm a Fresh Graduate with Computer Science as Majors from COMSATS University, Islamabad. I have been developing mobile apps for over 2 years now. I have worked in teams for various startups and helped them in launching their prototypes and got valuable learning experience. "
-              "Been a former Google Developer Student Clubs (DSC) lead and also CEO/Co-Founder Flutter Islamabad, Pakistan. Currently working as Associate Software Engineer at Sastaticket.pk.",
+              "I’m a final-year Computer Science student at Dawood University of Engineering and Technology and a national-level certified mobile app developer. I have been learning and working in mobile app development for over 2 years, during which I’ve collaborated with different organizations to help them launch their prototypes and gain practical experience. My passion for technology and education has led me to teach others, sharing my industry knowledge as a technical teacher.\n\n"
+              "In addition to my academic pursuits, I have real-world industry experience, having contributed to numerous projects that combine innovative mobile solutions with modern technologies. Currently, I’m focused on advancing my skills in Flutter, AI, and machine learning, always seeking new challenges to further push my capabilities.",
               style: TextStyle(
                 fontSize: contentFontSize,
                 fontFamily: 'Poppins',
