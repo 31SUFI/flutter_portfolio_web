@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 import 'package:portfolio_web/constants/colors.dart';
 import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
 import 'package:portfolio_web/screens/widgets/social_widget.dart';
@@ -34,12 +35,7 @@ class HeaderTextWidget extends StatelessWidget {
           ),
           if (isMobile || isTablet)
             SizedBox(height: isMobile ? 10 : 10), // Space for mobile and tablet
-          GradientTextWidget(
-            size: size,
-            alignment: TextAlign.center,
-            text1: "Mobile App Developer +",
-            text2: "Web Developer",
-          ),
+          TypingTextSwitcher(size: size), // Typing effect widget
           if (isMobile || isTablet)
             SizedBox(height: isMobile ? 10 : 10), // Space for mobile and tablet
           SizedBox(
@@ -61,41 +57,95 @@ class HeaderTextWidget extends StatelessWidget {
   }
 }
 
-class GradientTextWidget extends StatelessWidget {
-  final TextAlign? alignment;
-  final String? text1;
-  final String? text2;
-  final Color? color1;
-  final Color? color2;
-  final double? fsize;
-  final FontWeight? fw;
-  const GradientTextWidget(
-      {super.key,
-      required this.size,
-      this.alignment,
-      this.fw,
-      this.color1,
-      this.text1,
-      this.text2,
-      this.color2,
-      this.fsize});
-
+// Typing effect for gradient text
+class TypingTextSwitcher extends StatefulWidget {
   final Size size;
+  const TypingTextSwitcher({super.key, required this.size});
+
+  @override
+  _TypingTextSwitcherState createState() => _TypingTextSwitcherState();
+}
+
+class _TypingTextSwitcherState extends State<TypingTextSwitcher> {
+  final List<String> professions = [
+    'Mobile App Developer',
+    'Web Developer',
+    'UI/UX Designer',
+    'Flutter Enthusiast',
+  ];
+
+  int _currentIndex = 0;
+  String _currentText = '';
+  bool _isTyping = true;
+  int _textCharIndex = 0;
+  Timer? _typingTimer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTyping();
+  }
+
+  void _startTyping() {
+    _typingTimer = Timer.periodic(Duration(milliseconds: 100), (Timer timer) {
+      if (!mounted)
+        return; // Check if the widget is still mounted before calling setState
+
+      setState(() {
+        if (_isTyping) {
+          if (_textCharIndex < professions[_currentIndex].length) {
+            _currentText += professions[_currentIndex][_textCharIndex];
+            _textCharIndex++;
+          } else {
+            _isTyping = false;
+            Future.delayed(Duration(seconds: 1), _startTyping);
+            _typingTimer?.cancel();
+          }
+        } else {
+          if (_textCharIndex > 0) {
+            _textCharIndex--;
+            _currentText = _currentText.substring(0, _textCharIndex);
+          } else {
+            _isTyping = true;
+            _currentIndex = (_currentIndex + 1) % professions.length;
+            _typingTimer?.cancel();
+            _startTyping();
+          }
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _typingTimer?.cancel(); // Cancel the timer when the widget is disposed
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GradientText(
-      textAlign: size.width < 600 && alignment != null ? alignment : null,
-      "${text1}\n${text2 ?? ""}",
-      colors: [
-        AppColors.studio,
-        AppColors.paleSlate,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.play_arrow,
+          color: Colors.red, // Match the red play button
+        ),
+        SizedBox(width: 8), // Space between the icon and text
+        GradientText(
+          _currentText,
+          colors: [
+            AppColors.studio,
+            AppColors.paleSlate,
+          ],
+          style: TextStyle(
+            fontSize: widget.size.width * 0.040,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: widget.size.width < 600 ? TextAlign.center : null,
+        ),
       ],
-      style: TextStyle(
-        fontSize: size.width * 0.040,
-        fontFamily: 'Poppins',
-        fontWeight: FontWeight.bold,
-      ),
     );
   }
 }
