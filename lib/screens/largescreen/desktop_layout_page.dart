@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_web/constants/colors.dart';
 import 'package:portfolio_web/constants/styles.dart';
 import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
 import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
 import 'package:portfolio_web/screens/widgets/nav_bar.dart';
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
+import 'package:portfolio_web/screens/widgets/tech_stack_widget.dart';
 // Import the AboutMeWidget
 
 class DesktopLayout extends StatefulWidget {
@@ -58,6 +58,10 @@ class _DesktopLayoutState extends State<DesktopLayout> {
               ),
               SizedBox(height: size.height * 0.12),
               AboutMeWidget(size: size),
+              SizedBox(height: size.height * 0.12),
+              TechStackSection(
+                size: size,
+              )
             ],
           ),
         ),

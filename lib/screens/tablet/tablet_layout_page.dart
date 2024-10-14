@@ -5,10 +5,9 @@ import 'package:portfolio_web/constants/styles.dart';
 import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
 import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
 import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
-import 'package:portfolio_web/screens/widgets/myservice_widgets.dart';
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/screens/widgets/social_widget.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:portfolio_web/screens/widgets/tech_stack_widget.dart';
 
 class TabletLayout extends StatefulWidget {
   const TabletLayout({super.key});
@@ -153,6 +152,11 @@ class _TabletLayoutState extends State<TabletLayout> {
                     SizedBox(height: size.height * 0.05),
                     SizedBox(height: size.height * 0.02),
                     AboutMeWidget(size: size),
+                    SizedBox(height: size.height * 0.05),
+                    SizedBox(height: size.height * 0.02),
+                    TechStackSection(
+                      size: size,
+                    )
                   ],
                 ),
               ),

@@ -9,7 +9,8 @@ import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/screens/widgets/social_widget.dart';
 
-import 'package:portfolio_web/screens/widgets/custom_drawer.dart'; // Import the custom drawer
+import 'package:portfolio_web/screens/widgets/custom_drawer.dart';
+import 'package:portfolio_web/screens/widgets/tech_stack_widget.dart'; // Import the custom drawer
 
 class MobileLayout extends StatefulWidget {
   const MobileLayout({super.key});
@@ -112,6 +113,12 @@ class _MobileLayoutState extends State<MobileLayout> {
                       height: size.width * 0.09,
                     ),
                     AboutMeWidget(
+                      size: size,
+                    ),
+                    SizedBox(
+                      height: size.width * 0.02,
+                    ),
+                    TechStackSection(
                       size: size,
                     )
                   ],
