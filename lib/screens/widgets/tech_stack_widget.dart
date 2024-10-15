@@ -74,10 +74,11 @@ class TechStackSection extends StatelessWidget {
 
               // Description
               Text(
-                "I have served as the Founder of growmonks, overseeing the entire project lifecycle "
-                "from ideation to successful client project delivery. As a Flutter Engineer at "
-                "Tickertape (10M+), I gained invaluable experience and deepened my understanding "
-                "of mobile development concepts.",
+                'During my internship at Invision Custom Solutions, I developed a mobile app '
+                'using Flutter, focusing on high-quality and scalable solutions. I worked closely '
+                'with a cross-functional team to add new features, ensuring smooth functionality and '
+                'integration across the app. This hands-on experience sharpened my skills in mobile '
+                'development and team collaboration.',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontStyle: FontStyle.italic,
@@ -126,12 +127,12 @@ class TechStackSection extends StatelessWidget {
 
   // Tech stack data with image paths
   final List<Map<String, dynamic>> techStacks = [
-    {'image': 'assets/images/flutter.png.', 'label': 'Flutter'},
     {'image': 'assets/images/dart.png', 'label': 'Dart'},
+    {'image': 'assets/images/flutter3d.jpg.', 'label': 'Flutter'},
     {'image': 'assets/images/firebase.png', 'label': 'Firebase'},
     {'image': 'assets/images/git.png', 'label': 'Git'},
     {'image': 'assets/images/android_studio.png', 'label': 'Android Studio'},
-    {'image': 'assets/images/wordpress.png', 'label': 'Wordpress'},
+    {'image': 'assets/images/bloc2.png', 'label': 'Bloc'},
   ];
 
   // Helper widget to create each icon with a label, adjusted for mobile
