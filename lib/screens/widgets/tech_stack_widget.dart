@@ -104,7 +104,7 @@ class TechStackSection extends StatelessWidget {
               crossAxisCount: isMobile ? 3 : 6, // 3 for mobile, 6 for desktop
               crossAxisSpacing: 16, // Adjusted spacing between columns
               mainAxisSpacing:
-                  16, // Increased spacing between rows to avoid overlap
+                  18, // Increased spacing between rows to avoid overlap
               children: [
                 _buildTechStackIcon(Icons.flutter_dash, "Flutter", isMobile),
                 _buildTechStackIcon(Icons.storage, "Firebase", isMobile),
