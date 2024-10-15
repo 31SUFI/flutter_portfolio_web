@@ -29,7 +29,7 @@ class HeaderTextWidget extends StatelessWidget {
             sSize: size,
             text: "I'm Muhammad Sufiyan,",
             color: Colors.white,
-            size: 26,
+            size: 25,
             fw: FontWeight.bold,
             alignment: TextAlign.center,
           ),
