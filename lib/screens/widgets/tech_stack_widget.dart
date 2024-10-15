@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_web/constants/colors.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class TechStackSection extends StatelessWidget {
   final Size size; // Add a parameter for size
@@ -104,16 +102,16 @@ class TechStackSection extends StatelessWidget {
               physics:
                   NeverScrollableScrollPhysics(), // Prevent scrolling inside GridView
               crossAxisCount: isMobile ? 3 : 6, // 3 for mobile, 6 for desktop
-              crossAxisSpacing: 8, // Reduced spacing between columns
-              mainAxisSpacing: 8, // Reduced spacing between rows
+              crossAxisSpacing: 16, // Adjusted spacing between columns
+              mainAxisSpacing:
+                  16, // Increased spacing between rows to avoid overlap
               children: [
-                _buildTechStackIcon(Icons.flutter_dash, "Flutter"),
-                _buildTechStackIcon(Icons.storage, "Firebase"),
-                _buildTechStackIcon(Icons.code, "NodeJS"),
-                _buildTechStackIcon(Icons.functions_sharp, "Docker"),
-                _buildTechStackIcon(Icons.language, "Typescript"),
-                _buildTechStackIcon(Icons.cloud, "AWS"),
-                // Add more icons as needed...
+                _buildTechStackIcon(Icons.flutter_dash, "Flutter", isMobile),
+                _buildTechStackIcon(Icons.storage, "Firebase", isMobile),
+                _buildTechStackIcon(Icons.code, "NodeJS", isMobile),
+                _buildTechStackIcon(Icons.functions_sharp, "Docker", isMobile),
+                _buildTechStackIcon(Icons.language, "Typescript", isMobile),
+                _buildTechStackIcon(Icons.cloud, "AWS", isMobile),
               ],
             ),
           ),
@@ -122,22 +120,27 @@ class TechStackSection extends StatelessWidget {
     );
   }
 
-  // Helper widget to create each icon with a label
-  Widget _buildTechStackIcon(IconData icon, String label) {
+  // Helper widget to create each icon with a label, adjusted for mobile
+  Widget _buildTechStackIcon(IconData icon, String label, bool isMobile) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CircleAvatar(
           backgroundColor: Colors.grey[800],
-          radius: 32, // Adjust size for a smaller circle
-          child: Icon(icon, color: Colors.white, size: 36),
+          radius: isMobile ? 28 : 32, // Smaller circle for mobile
+          child: Icon(icon,
+              color: Colors.white,
+              size: isMobile ? 30 : 36), // Adjusted icon size
         ),
         SizedBox(height: 8),
-        Text(
-          label,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
+        FittedBox(
+          // To ensure text fits within available space
+          child: Text(
+            label,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: isMobile ? 12 : 14, // Smaller text for mobile
+            ),
           ),
         ),
       ],
