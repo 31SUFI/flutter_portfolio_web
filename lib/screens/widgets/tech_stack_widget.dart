@@ -132,7 +132,7 @@ class TechStackSection extends StatelessWidget {
               color: Colors.white,
               size: isMobile ? 30 : 36), // Adjusted icon size
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 13),
         FittedBox(
           // To ensure text fits within available space
           child: Text(
