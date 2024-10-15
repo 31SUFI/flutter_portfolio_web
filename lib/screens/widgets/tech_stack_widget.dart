@@ -9,7 +9,7 @@ class TechStackSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isMobile = constraints.maxWidth < 600; // Define mobile size
+        bool isMobile = constraints.maxWidth < 600;
 
         return Padding(
           padding: const EdgeInsets.all(16.0),
@@ -18,7 +18,7 @@ class TechStackSection extends StatelessWidget {
             children: [
               SizedBox(height: size.height * 0.02),
 
-              // RichText for heading with dynamic font size
+              // RichText for heading
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
@@ -89,12 +89,10 @@ class TechStackSection extends StatelessWidget {
 
               const SizedBox(height: 32),
 
-              // Tech Stack Icons with dynamic columns for responsiveness
+              // Tech Stack Images with dynamic columns for responsiveness
               LayoutBuilder(
                 builder: (context, constraints) {
-                  int crossAxisCount = isMobile
-                      ? 3
-                      : 6; // 3 columns on mobile, 6 on larger screens
+                  int crossAxisCount = isMobile ? 3 : 6;
 
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -110,7 +108,7 @@ class TechStackSection extends StatelessWidget {
                       itemCount: techStacks.length,
                       itemBuilder: (context, index) {
                         return _buildTechStackIcon(
-                          techStacks[index]['icon'] as IconData,
+                          techStacks[index]['image'] as String,
                           techStacks[index]['label'] as String,
                           isMobile,
                         );
@@ -126,25 +124,35 @@ class TechStackSection extends StatelessWidget {
     );
   }
 
-  // Tech stack data
+  // Tech stack data with image paths
   final List<Map<String, dynamic>> techStacks = [
-    {'icon': Icons.flutter_dash, 'label': 'Flutter'},
-    {'icon': Icons.storage, 'label': 'Firebase'},
-    {'icon': Icons.code, 'label': 'NodeJS'},
-    {'icon': Icons.functions_sharp, 'label': 'Docker'},
-    {'icon': Icons.language, 'label': 'Typescript'},
-    {'icon': Icons.cloud, 'label': 'AWS'},
+    {'image': 'assets/images/flutter.png.', 'label': 'Flutter'},
+    {'image': 'assets/images/dart.png', 'label': 'Dart'},
+    {'image': 'assets/images/firebase.png', 'label': 'Firebase'},
+    {'image': 'assets/images/git.png', 'label': 'Git'},
+    {'image': 'assets/images/android_studio.png', 'label': 'Android Studio'},
+    {'image': 'assets/images/wordpress.png', 'label': 'Wordpress'},
   ];
 
   // Helper widget to create each icon with a label, adjusted for mobile
-  Widget _buildTechStackIcon(IconData icon, String label, bool isMobile) {
+  Widget _buildTechStackIcon(String imagePath, String label, bool isMobile) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CircleAvatar(
           backgroundColor: Colors.grey[800],
           radius: isMobile ? 28 : 36, // Adjust radius based on screen size
-          child: Icon(icon, color: Colors.white, size: isMobile ? 30 : 40),
+          child: ClipOval(
+            // Clip image to make sure it stays inside the circular shape
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.cover, // Ensure the image fills the avatar
+              width: isMobile
+                  ? 56
+                  : 72, // Adjusted width and height based on screen size
+              height: isMobile ? 56 : 72,
+            ),
+          ),
         ),
         const SizedBox(height: 8),
         FittedBox(
