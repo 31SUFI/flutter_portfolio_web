@@ -5,12 +5,12 @@ import 'package:portfolio_web/constants/styles.dart';
 import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
 import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
 import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
-
+import 'package:portfolio_web/screens/widgets/project_widget.dart';
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/screens/widgets/social_widget.dart';
-
 import 'package:portfolio_web/screens/widgets/custom_drawer.dart';
-import 'package:portfolio_web/screens/widgets/tech_stack_widget.dart'; // Import the custom drawer
+import 'package:portfolio_web/screens/widgets/tech_stack_widget.dart';
+// Import ProjectsSection
 
 class MobileLayout extends StatefulWidget {
   const MobileLayout({super.key});
@@ -24,8 +24,7 @@ class _MobileLayoutState extends State<MobileLayout> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // Use the custom drawer created above
-      drawer: const CustomDrawer(),
+      drawer: const CustomDrawer(), // Custom drawer
 
       body: Container(
         height: double.infinity,
@@ -71,58 +70,48 @@ class _MobileLayoutState extends State<MobileLayout> {
               ),
 
               // Main content
-              Container(
-                child: Column(
-                  children: [
-                    // Rotating image
-                    Container(
-                      child: const Column(
+              Column(
+                children: [
+                  // Rotating image
+                  const RotatingImageContainer(),
+
+                  SizedBox(
+                    height: size.width * 0.09,
+                  ),
+
+                  // Header text and social tab
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [RotatingImageContainer()],
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          HeaderTextWidget(size: size),
+                          const SizedBox(height: 20),
+                          Social_Tab(size: size)
+                        ],
                       ),
-                    ),
-                    SizedBox(
-                      height: size.width * 0.09,
-                    ),
-                    // Header text and social tab
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(
-                              children: [
-                                HeaderTextWidget(
-                                  size: size,
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Social_Tab(size: size)
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: size.width * 0.09,
-                    ),
-                    AboutMeWidget(
-                      size: size,
-                    ),
-                    SizedBox(
-                      height: size.width * 0.02,
-                    ),
-                    TechStackSection(
-                      size: size,
-                    )
-                  ],
-                ),
+                    ],
+                  ),
+
+                  SizedBox(height: size.width * 0.09),
+
+                  // About me section
+                  AboutMeWidget(size: size),
+
+                  SizedBox(height: size.width * 0.02),
+
+                  // Tech stack section
+                  TechStackSection(size: size),
+
+                  SizedBox(height: size.width * 0.05),
+
+                  // Projects Section
+                  ProjectsSection(), // Add the ProjectsSection widget here
+                ],
               ),
             ],
           ),

@@ -32,6 +32,7 @@ class HeaderTextWidget extends StatelessWidget {
             size: 25,
             fw: FontWeight.bold,
             alignment: TextAlign.center,
+            underline: true,
           ),
           if (isMobile || isTablet)
             SizedBox(height: isMobile ? 10 : 10), // Space for mobile and tablet
@@ -70,7 +71,6 @@ class _TypingTextSwitcherState extends State<TypingTextSwitcher> {
   final List<String> professions = [
     'Mobile App Developer',
     'Web Developer',
-    'UI/UX Designer',
     'Flutter Enthusiast',
   ];
 

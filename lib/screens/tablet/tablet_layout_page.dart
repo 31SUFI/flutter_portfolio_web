@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_web/constants/colors.dart';
 import 'package:portfolio_web/constants/styles.dart';
+import 'package:portfolio_web/screens/mobile/mobile_layout_page.dart';
 import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
+import 'package:portfolio_web/screens/widgets/custom_drawer.dart';
 import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
 import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
+import 'package:portfolio_web/screens/widgets/project_widget.dart';
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/screens/widgets/social_widget.dart';
 import 'package:portfolio_web/screens/widgets/tech_stack_widget.dart';
@@ -21,60 +24,7 @@ class _TabletLayoutState extends State<TabletLayout> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      endDrawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: AppColors.ebony,
-              ),
-              child: Text(
-                'Navigation',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.info),
-              title: Text('About Us'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.work),
-              title: Text('Projects'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.school),
-              title: Text('Certifications'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.emoji_events),
-              title: Text('Achievements'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: const CustomDrawer(),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -156,38 +106,17 @@ class _TabletLayoutState extends State<TabletLayout> {
                     SizedBox(height: size.height * 0.02),
                     TechStackSection(
                       size: size,
-                    )
+                    ),
+                    SizedBox(height: size.height * 0.05),
+
+                    // Add the ProjectsSection here
+                    ProjectsSection(), // This will display the project cards
                   ],
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class Social_Tab extends StatelessWidget {
-  const Social_Tab({
-    super.key,
-    required this.size,
-  });
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: size.width,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          DownloadCVButton(),
-          SizedBox(height: 20),
-          SocialWidget(),
-        ],
       ),
     );
   }

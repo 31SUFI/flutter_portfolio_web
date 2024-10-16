@@ -3,9 +3,9 @@ import 'package:portfolio_web/constants/styles.dart';
 import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
 import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
 import 'package:portfolio_web/screens/widgets/nav_bar.dart';
+import 'package:portfolio_web/screens/widgets/project_widget.dart'; // Import the ProjectsSection widget here
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/screens/widgets/tech_stack_widget.dart';
-// Import the AboutMeWidget
 
 class DesktopLayout extends StatefulWidget {
   const DesktopLayout({super.key});
@@ -59,9 +59,18 @@ class _DesktopLayoutState extends State<DesktopLayout> {
               SizedBox(height: size.height * 0.12),
               AboutMeWidget(size: size),
               SizedBox(height: size.height * 0.12),
-              TechStackSection(
-                size: size,
-              )
+              TechStackSection(size: size),
+
+              // Add the Projects Section here
+              SizedBox(
+                  height: size.height * 0.12), // Add spacing before Projects
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: 16.0), // Add padding to Projects section
+                child: ProjectsSection(), // Here’s the project section widget
+              ),
+              SizedBox(
+                  height: size.height * 0.12), // Add spacing after Projects
             ],
           ),
         ),

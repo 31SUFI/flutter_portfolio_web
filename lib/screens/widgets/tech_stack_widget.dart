@@ -10,6 +10,8 @@ class TechStackSection extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         bool isMobile = constraints.maxWidth < 600;
+        bool isTablet =
+            constraints.maxWidth >= 600 && constraints.maxWidth < 1024;
 
         return Padding(
           padding: const EdgeInsets.all(16.0),
@@ -93,7 +95,14 @@ class TechStackSection extends StatelessWidget {
               // Tech Stack Images with dynamic columns for responsiveness
               LayoutBuilder(
                 builder: (context, constraints) {
-                  int crossAxisCount = isMobile ? 3 : 6;
+                  int crossAxisCount;
+                  if (isMobile) {
+                    crossAxisCount = 3;
+                  } else if (isTablet) {
+                    crossAxisCount = 4; // Adjust for tablet layout
+                  } else {
+                    crossAxisCount = 6; // For larger screens
+                  }
 
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -104,7 +113,9 @@ class TechStackSection extends StatelessWidget {
                         crossAxisCount: crossAxisCount,
                         crossAxisSpacing: 16,
                         mainAxisSpacing: 16,
-                        childAspectRatio: 1, // Make each cell square
+                        childAspectRatio: isTablet
+                            ? 1.2
+                            : 1, // Adjust aspect ratio for tablet
                       ),
                       itemCount: techStacks.length,
                       itemBuilder: (context, index) {
