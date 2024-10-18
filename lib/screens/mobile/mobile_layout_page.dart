@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_web/constants/styles.dart';
 import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
 import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
+import 'package:portfolio_web/screens/widgets/footer_widget.dart';
 import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
 import 'package:portfolio_web/screens/widgets/project_widget.dart';
 import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
@@ -23,6 +24,11 @@ class _MobileLayoutState extends State<MobileLayout> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
+    // Define appropriate spacing before the footer based on screen width
+    double footerSpacing =
+        size.width * 0.05; // Responsive SizedBox before FooterWidget
+
     return Scaffold(
       drawer: const CustomDrawer(), // Custom drawer
 
@@ -111,6 +117,13 @@ class _MobileLayoutState extends State<MobileLayout> {
 
                   // Projects Section
                   ProjectsSection(), // Add the ProjectsSection widget here
+
+                  // Add SizedBox before FooterWidget
+                  SizedBox(
+                      height:
+                          footerSpacing), // Responsive spacing before footer
+
+                  FooterWidget(), // Footer section
                 ],
               ),
             ],

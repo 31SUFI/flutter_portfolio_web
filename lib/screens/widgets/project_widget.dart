@@ -89,7 +89,7 @@ class ProjectsSection extends StatelessWidget {
               Center(
                 child: Container(
                   width: constraints.maxWidth *
-                      0.8, // Restrict width to 80% of screen
+                      0.9, // Restrict width to 90% of screen
                   child: GridView.builder(
                     shrinkWrap: true,
                     physics:
@@ -144,50 +144,70 @@ class ProjectCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Image at the top
+          Container(
+            width: double.infinity,
+            height: 130, // Ensure a fixed height for the image
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              image: DecorationImage(
+                image: AssetImage(
+                    'assets/images/mockup.png'), // Your project image path
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SizedBox(height: 10), // Space between image and title
+
+          // Center the title
           Center(
-            // Center the title
             child: Text(
               title,
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 20, // Slightly reduced font size for title
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
           ),
           SizedBox(height: 10),
+
+          // Description
           Expanded(
-            // Ensure description takes available space and is centered
             child: Center(
               child: Text(
                 description,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 14, // Adjusted font size for description
                   color: Colors.white70,
                 ),
-                textAlign: TextAlign.center, // Center the text description
+                textAlign: TextAlign.center,
               ),
             ),
           ),
-          Spacer(), // Pushes the bottom row to the end
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Check on Github",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
+
+          // Spacer to push "Show on GitHub" to bottom-right
+          SizedBox(height: 10),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: GestureDetector(
+              onTap: () {
+                // Handle GitHub link here
+                print('Redirect to GitHub');
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 8.0, right: 8.0),
+                child: Text(
+                  "Show on GitHub",
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.yellowAccent,
+                    decoration: TextDecoration
+                        .underline, // Add underline for link effect
+                  ),
                 ),
               ),
-              Text(
-                "Read More >>",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.yellowAccent,
-                ),
-              ),
-            ],
+            ),
           ),
         ],
       ),
