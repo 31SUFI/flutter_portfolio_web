@@ -4,133 +4,57 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
-
+  
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="portfolio_web">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
+  
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>Muhammad Sufiyan 🙌👉</title>
+  <title> Muhammad Sufiyan 🙌 </title>
   <link rel="manifest" href="manifest.json">
 
-  <!-- Add the loader's styles here -->
+  <!-- Add some CSS for the loading spinner -->
   <style>
-    * {
-      border: 0;
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    :root {
-      --hue: 223;
-      --bg: hsl(var(--hue),90%,95%);
-      --fg: hsl(var(--hue),90%,5%);
-      --trans-dur: 0.3s;
-      font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
-    }
-    body {
-      background-color: var(--bg);
-      color: var(--fg);
-      font: 1em/1.5 sans-serif;
-      height: 100vh;
-      display: grid;
-      place-items: center;
-      transition: background-color var(--trans-dur);
-    }
-    main {
-      padding: 1.5em 0;
-    }
-    .ip {
-      width: 16em;
-      height: 8em;
-    }
-    .ip__track {
-      stroke: hsl(var(--hue),90%,90%);
-      transition: stroke var(--trans-dur);
-    }
-    .ip__worm1,
-    .ip__worm2 {
-      animation: worm1 2s linear infinite;
-    }
-    .ip__worm2 {
-      animation-name: worm2;
+    #loader {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
     }
 
-    /* Dark theme */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: hsl(var(--hue),90%,5%);
-        --fg: hsl(var(--hue),90%,95%);
-      }
-      .ip__track {
-        stroke: hsl(var(--hue),90%,15%);
-      }
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border-left-color: #09f;
+      animation: spin 1s linear infinite;
     }
 
-    /* Animation */
-    @keyframes worm1 {
-      from {
-        stroke-dashoffset: 0;
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
-      50% {
-        animation-timing-function: steps(1);
-        stroke-dashoffset: -358;
-      }
-      50.01% {
-        animation-timing-function: linear;
-        stroke-dashoffset: 358;
-      }
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-    @keyframes worm2 {
-      from {
-        stroke-dashoffset: 358;
-      }
-      50% {
-        stroke-dashoffset: 0;
-      }
-      to {
-        stroke-dashoffset: -358;
+      100% {
+        transform: rotate(360deg);
       }
     }
   </style>
 </head>
 <body>
-  <!-- Display the loader here -->
-  <main>
-    <svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#5ebd3e" />
-          <stop offset="33%" stop-color="#ffb900" />
-          <stop offset="67%" stop-color="#f78200" />
-          <stop offset="100%" stop-color="#e23838" />
-        </linearGradient>
-        <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
-          <stop offset="0%" stop-color="#e23838" />
-          <stop offset="33%" stop-color="#973999" />
-          <stop offset="67%" stop-color="#009cdf" />
-          <stop offset="100%" stop-color="#5ebd3e" />
-        </linearGradient>
-      </defs>
-      <g fill="none" stroke-linecap="round" stroke-width="16">
-        <g class="ip__track" stroke="#ddd">
-          <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56"/>
-          <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64"/>
-        </g>
-        <g stroke-dasharray="180 656">
-          <path class="ip__worm1" stroke="url(#grad1)" stroke-dashoffset="0" d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56"/>
-          <path class="ip__worm2" stroke="url(#grad2)" stroke-dashoffset="358" d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64"/>
-        </g>
-      </g>
-    </svg>
-  </main>
+  <!-- Loading Spinner -->
+  <div id="loader">
+    <div class="spinner"></div>
+    Loading content...
+  </div>
 
   <!-- Flutter Web app -->
   <script src="flutter_bootstrap.js" async></script>
@@ -138,7 +62,7 @@
   <script>
     // Hide the loader once the Flutter app has finished loading
     window.addEventListener('load', function() {
-      document.querySelector('main').style.display = 'none';
+      document.getElementById('loader').style.display = 'none';
     });
   </script>
 </body>
