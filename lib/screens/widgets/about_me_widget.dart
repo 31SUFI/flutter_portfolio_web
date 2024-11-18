@@ -44,7 +44,7 @@ class AboutMeWidget extends StatelessWidget {
           // About Me title
           GradientText(
             "About Me",
-            colors: [AppColors.studio, AppColors.paleSlate],
+            colors: const [AppColors.studio, AppColors.paleSlate],
             style: TextStyle(
                 fontSize: titleFontSize,
                 fontFamily: 'Poppins',

@@ -10,11 +10,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth > 950) {
-        return DesktopLayout();
+        return const DesktopLayout();
       } else if (constraints.maxWidth >= 600 && constraints.maxWidth < 1024) {
-        return TabletLayout();
+        return const TabletLayout();
       } else {
-        return MobileLayout();
+        return const MobileLayout();
       }
     });
   }

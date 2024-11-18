@@ -86,9 +86,11 @@ class _TypingTextSwitcherState extends State<TypingTextSwitcher> {
   }
 
   void _startTyping() {
-    _typingTimer = Timer.periodic(Duration(milliseconds: 100), (Timer timer) {
-      if (!mounted)
+    _typingTimer =
+        Timer.periodic(const Duration(milliseconds: 100), (Timer timer) {
+      if (!mounted) {
         return; // Check if the widget is still mounted before calling setState
+      }
 
       setState(() {
         if (_isTyping) {
@@ -97,7 +99,7 @@ class _TypingTextSwitcherState extends State<TypingTextSwitcher> {
             _textCharIndex++;
           } else {
             _isTyping = false;
-            Future.delayed(Duration(seconds: 1), _startTyping);
+            Future.delayed(const Duration(seconds: 1), _startTyping);
             _typingTimer?.cancel();
           }
         } else {
@@ -126,14 +128,14 @@ class _TypingTextSwitcherState extends State<TypingTextSwitcher> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+        const Icon(
           Icons.play_arrow,
           color: Colors.red, // Match the red play button
         ),
-        SizedBox(width: 8), // Space between the icon and text
+        const SizedBox(width: 8), // Space between the icon and text
         GradientText(
           _currentText,
-          colors: [
+          colors: const [
             AppColors.studio,
             AppColors.paleSlate,
           ],
@@ -159,9 +161,9 @@ class Social_large extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: size.width * 0.5,
-      child: Row(
+      child: const Row(
         children: [
           DownloadCVButton(),
           SizedBox(

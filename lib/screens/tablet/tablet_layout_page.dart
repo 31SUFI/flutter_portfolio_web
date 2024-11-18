@@ -43,7 +43,7 @@ class _TabletLayoutState extends State<TabletLayout> {
                 children: [
                   // Left-aligned logo
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Image.asset(
                       "assets/images/logo.png",
                       height: 100,
@@ -52,12 +52,13 @@ class _TabletLayoutState extends State<TabletLayout> {
                   ),
                   // Right-aligned menu button (drawer icon)
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 20),
                     child: Builder(
                       builder: (context) {
                         return IconButton(
                           iconSize: 30.0, // Adjust the size of the icon
-                          icon: FaIcon(
+                          icon: const FaIcon(
                             FontAwesomeIcons.bars, // Hamburger menu icon
                             color: Colors.white, // Set icon color
                           ),
@@ -86,7 +87,7 @@ class _TabletLayoutState extends State<TabletLayout> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              child: Column(
+                              child: const Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [RotatingImageContainer()],
                               ),
@@ -99,7 +100,7 @@ class _TabletLayoutState extends State<TabletLayout> {
                                 HeaderTextWidget(size: size),
                               ],
                             ),
-                            SizedBox(height: 20),
+                            const SizedBox(height: 20),
                             Social_Tab(size: size),
                           ],
                         ),
@@ -121,7 +122,7 @@ class _TabletLayoutState extends State<TabletLayout> {
                     SizedBox(
                         height:
                             footerSpacing), // Responsive spacing before Footer
-                    FooterWidget(),
+                    const FooterWidget(),
                   ],
                 ),
               ),
@@ -143,15 +144,15 @@ class Social_Tab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: size.width,
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           DownloadCVButton(),
-          const SizedBox(height: 20),
-          const SocialWidget(),
+          SizedBox(height: 20),
+          SocialWidget(),
         ],
       ),
     );

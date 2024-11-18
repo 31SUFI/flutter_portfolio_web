@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TechStackSection extends StatelessWidget {
   final Size size;
 
-  TechStackSection({Key? key, required this.size}) : super(key: key);
+  TechStackSection({super.key, required this.size});
 
   @override
   Widget build(BuildContext context) {

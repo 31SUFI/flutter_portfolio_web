@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class NavBar extends StatelessWidget {
   final Size size;
 
-  const NavBar({required this.size});
+  const NavBar({super.key, required this.size});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 100, // You can adjust this height based on your needs
-      padding:
-          EdgeInsets.symmetric(horizontal: 20.0), // Horizontal padding only
+      padding: const EdgeInsets.symmetric(
+          horizontal: 20.0), // Horizontal padding only
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment:
@@ -46,17 +46,17 @@ class NavBarItem extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
 
-  const NavBarItem({required this.text, required this.onTap});
+  const NavBarItem({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 18,
             fontFamily: 'Poppins',

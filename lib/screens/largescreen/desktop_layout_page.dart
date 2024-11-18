@@ -28,7 +28,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 child: NavBar(size: size),
               ),
               Container(
@@ -42,13 +42,13 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         HeaderTextWidget(size: size),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Social_large(size: size),
                       ],
                     ),
                     Expanded(
                       child: Container(
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [RotatingImageContainer()],
                         ),
@@ -65,13 +65,13 @@ class _DesktopLayoutState extends State<DesktopLayout> {
               // Projects Section
               SizedBox(height: size.height * 0.12),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: ProjectsSection(),
               ),
               SizedBox(height: size.height * 0.12),
 
               // Footer Section
-              FooterWidget(), // Add the footer at the bottom
+              const FooterWidget(), // Add the footer at the bottom
             ],
           ),
         ),

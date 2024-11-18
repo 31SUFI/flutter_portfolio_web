@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_web/constants/colors.dart';
-import 'package:url_launcher/url_launcher.dart'; // Import url_launcher
+import 'package:portfolio_web/utilities/url_launcher_util.dart'; // Import the utility
 
 class DownloadCVButton extends StatefulWidget {
   const DownloadCVButton({super.key});
@@ -15,17 +15,8 @@ class DownloadCVButton extends StatefulWidget {
 }
 
 class _DownloadCVButtonState extends State<DownloadCVButton> {
-  bool _isHovered = false; // State variable for hover effect
-  bool _isPressed = false; // State variable for click effect
-
-  Future<void> _launchURL(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+  bool _isHovered = false;
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +27,7 @@ class _DownloadCVButtonState extends State<DownloadCVButton> {
         onTapDown: (_) => setState(() => _isPressed = true),
         onTapUp: (_) {
           setState(() => _isPressed = false);
-          _launchURL(widget.cvUrl); // Launch the URL on tap up
+          URLLauncher.launchURL(widget.cvUrl); // Use the utility method
         },
         onTapCancel: () => setState(() => _isPressed = false),
         child: Container(
@@ -57,10 +48,8 @@ class _DownloadCVButtonState extends State<DownloadCVButton> {
                   fontWeight: _isPressed ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
-              const SizedBox.square(
-                dimension: 12,
-              ),
-              FaIcon(
+              const SizedBox.square(dimension: 12),
+              const FaIcon(
                 FontAwesomeIcons.download,
                 color: AppColors.paleSlate,
                 size: 18,

@@ -45,7 +45,7 @@ class _MobileLayoutState extends State<MobileLayout> {
                 children: [
                   // Left-aligned logo
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Image.asset(
                       "assets/images/logo.png",
                       height: 100,
@@ -123,7 +123,7 @@ class _MobileLayoutState extends State<MobileLayout> {
                       height:
                           footerSpacing), // Responsive spacing before footer
 
-                  FooterWidget(), // Footer section
+                  const FooterWidget(), // Footer section
                 ],
               ),
             ],
@@ -144,18 +144,18 @@ class Social_Tab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: size.width,
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Add your widgets for social media here
           DownloadCVButton(),
-          const SizedBox(
+          SizedBox(
             height: 20,
           ),
-          const SocialWidget(),
+          SocialWidget(),
         ],
       ),
     );
