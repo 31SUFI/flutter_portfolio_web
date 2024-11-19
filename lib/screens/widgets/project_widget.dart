@@ -9,7 +9,7 @@ class ProjectsSection extends StatelessWidget {
     const ProjectCard(
       title: 'NayaPay Clone',
       description: 'A complete clone of leading Fintech company ...',
-      githubUrl: 'https://github.com/yourusername/nayapay-clone',
+      githubUrl: 'https://github.com/31SUFI/NayaPay_Clone',
       imageUrl: 'assets/images/nayapay.png', // Specify the image path
     ),
     const ProjectCard(
