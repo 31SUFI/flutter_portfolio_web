@@ -13,10 +13,10 @@ class ProjectsSection extends StatelessWidget {
       imageUrl: 'assets/images/nayapay.png', // Specify the image path
     ),
     const ProjectCard(
-      title: 'Project 02',
-      description: 'A user-friendly mobile application...',
-      githubUrl: 'https://github.com/yourusername/project02',
-      imageUrl: 'assets/images/mockup.png', // Specify the image path
+      title: 'Bookify',
+      description: 'A user-friendly books library and managemant app...',
+      githubUrl: 'https://github.com/31SUFI/Bookify',
+      imageUrl: 'assets/images/bookify.png', // Specify the image path
     ),
     const ProjectCard(
       title: 'Project 03',
