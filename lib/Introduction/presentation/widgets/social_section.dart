@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
-import 'package:portfolio_web/screens/widgets/social_widget.dart';
+import 'package:portfolio_web/Introduction/presentation/widgets/download_cv_widget.dart';
+import 'package:portfolio_web/Introduction/presentation/widgets/social_widget.dart';
 
 class SocialSection extends StatelessWidget {
   const SocialSection({super.key});

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:portfolio_web/constants/styles.dart';
-import 'package:portfolio_web/screens/widgets/about_me_widget.dart';
-import 'package:portfolio_web/screens/widgets/download_cv_widget.dart';
+import 'package:portfolio_web/Aboutme/presentation/widgets/about_me_widget.dart';
+import 'package:portfolio_web/Introduction/presentation/widgets/download_cv_widget.dart';
 import 'package:portfolio_web/screens/widgets/footer_widget.dart';
-import 'package:portfolio_web/screens/widgets/header_text_widget.dart';
-import 'package:portfolio_web/screens/widgets/project_widget.dart';
-import 'package:portfolio_web/screens/widgets/rotating_image_widget.dart';
-import 'package:portfolio_web/screens/widgets/social_widget.dart';
+import 'package:portfolio_web/Introduction/presentation/widgets/header_text_widget.dart';
+import 'package:portfolio_web/Projects/presentation/widgets/project_widget.dart';
+import 'package:portfolio_web/Introduction/presentation/widgets/rotating_image_widget.dart';
+import 'package:portfolio_web/Introduction/presentation/widgets/social_widget.dart';
 import 'package:portfolio_web/screens/widgets/custom_drawer.dart';
-import 'package:portfolio_web/screens/widgets/tech_stack_widget.dart';
+import 'package:portfolio_web/Skills/presentation/widgets/tech_stack_widget.dart';
 // Import ProjectsSection
 
 class MobileLayout extends StatefulWidget {
