@@ -7,7 +7,8 @@ class TextWidget extends StatelessWidget {
   final double? size;
   final FontWeight? fw;
   final Size sSize;
-  final bool underline; // Add a parameter to control underlining
+  final bool underline; // Parameter to toggle underline
+  final bool italic; // Parameter to toggle italic style
 
   const TextWidget({
     super.key,
@@ -18,6 +19,7 @@ class TextWidget extends StatelessWidget {
     this.fw,
     this.alignment,
     this.underline = false, // Default value for underline is false
+    this.italic = false, // Default value for italic is false
   });
 
   @override
@@ -30,6 +32,9 @@ class TextWidget extends StatelessWidget {
         color: color,
         fontWeight: fw,
         fontFamily: 'Poppins',
+        fontStyle: italic
+            ? FontStyle.italic
+            : FontStyle.normal, // Apply italic conditionally
         decoration: underline
             ? TextDecoration.underline
             : TextDecoration.none, // Apply underline conditionally

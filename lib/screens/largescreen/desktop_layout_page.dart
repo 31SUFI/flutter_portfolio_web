@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/Introduction/presentation/widgets/social-large.dart';
 import 'package:portfolio_web/constants/styles.dart';
 import 'package:portfolio_web/Aboutme/presentation/widgets/about_me_widget.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/header_text_widget.dart';
@@ -6,7 +7,7 @@ import 'package:portfolio_web/screens/widgets/nav_bar.dart';
 import 'package:portfolio_web/Projects/presentation/widgets/project_widget.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/Skills/presentation/widgets/tech_stack_widget.dart';
-import 'package:portfolio_web/screens/widgets/footer_widget.dart'; // Import the FooterWidget
+import 'package:portfolio_web/screens/widgets/footer_widget.dart';
 
 class DesktopLayout extends StatefulWidget {
   const DesktopLayout({super.key});
@@ -27,12 +28,12 @@ class _DesktopLayoutState extends State<DesktopLayout> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: NavBar(size: size),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 10),
+              //   child: NavBar(size: size),
+              // ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: size.height * 0.15),
+                margin: EdgeInsets.symmetric(vertical: size.height * 0.10),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +58,7 @@ class _DesktopLayoutState extends State<DesktopLayout> {
                   ],
                 ),
               ),
-              SizedBox(height: size.height * 0.12),
+              // SizedBox(height: size.height * 0.12),
               AboutMeWidget(size: size),
               SizedBox(height: size.height * 0.12),
               TechStackSection(size: size),

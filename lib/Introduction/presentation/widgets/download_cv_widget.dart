@@ -7,7 +7,7 @@ class DownloadCVButton extends StatefulWidget {
   const DownloadCVButton({super.key});
 
   // URL of your CV on Google Drive
-  final String cvUrl =
+  final  String cvUrl =
       'https://docs.google.com/document/d/1Jxth5gUbLlkiJ9f0b_Q2gUw7GYNSHYMA2WvSrCJU-bk/edit?usp=drive_link'; // Replace with your CV link
 
   @override
