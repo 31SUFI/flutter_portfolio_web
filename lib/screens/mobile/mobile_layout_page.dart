@@ -4,12 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_web/constants/styles.dart';
 import 'package:portfolio_web/Aboutme/presentation/widgets/about_me_widget.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/download_cv_widget.dart';
-import 'package:portfolio_web/screens/widgets/footer_widget.dart';
+import 'package:portfolio_web/widgets/footer_widget.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/header_text_widget.dart';
 import 'package:portfolio_web/Projects/presentation/widgets/project_widget.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/social_widget.dart';
-import 'package:portfolio_web/screens/widgets/custom_drawer.dart';
+import 'package:portfolio_web/widgets/custom_drawer.dart';
 import 'package:portfolio_web/Skills/presentation/widgets/tech_stack_widget.dart';
 // Import ProjectsSection
 
@@ -39,7 +39,6 @@ class _MobileLayoutState extends State<MobileLayout> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Row for Logo on the left and Menu button on the right
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -50,26 +49,6 @@ class _MobileLayoutState extends State<MobileLayout> {
                       "assets/images/logo.png",
                       height: 100,
                       width: 100,
-                    ),
-                  ),
-                  // Right-aligned menu button (drawer icon)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
-                    child: Builder(
-                      builder: (context) {
-                        return IconButton(
-                          iconSize: 30.0, // Adjust the size of the icon
-                          icon: const FaIcon(
-                            FontAwesomeIcons.bars, // Hamburger menu icon
-                            color: Colors.white, // Set icon color
-                          ),
-                          onPressed: () {
-                            // Opens the drawer from the left side
-                            Scaffold.of(context).openDrawer();
-                          },
-                        );
-                      },
                     ),
                   ),
                 ],

@@ -3,11 +3,10 @@ import 'package:portfolio_web/Introduction/presentation/widgets/social-large.dar
 import 'package:portfolio_web/constants/styles.dart';
 import 'package:portfolio_web/Aboutme/presentation/widgets/about_me_widget.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/header_text_widget.dart';
-import 'package:portfolio_web/screens/widgets/nav_bar.dart';
 import 'package:portfolio_web/Projects/presentation/widgets/project_widget.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/rotating_image_widget.dart';
 import 'package:portfolio_web/Skills/presentation/widgets/tech_stack_widget.dart';
-import 'package:portfolio_web/screens/widgets/footer_widget.dart';
+import 'package:portfolio_web/widgets/footer_widget.dart';
 
 class DesktopLayout extends StatefulWidget {
   const DesktopLayout({super.key});

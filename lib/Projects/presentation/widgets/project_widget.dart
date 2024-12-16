@@ -1,31 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/Projects/data/model/projectmodel.dart';
+import 'package:portfolio_web/Projects/data/model/projectsData.dart';
 import 'package:portfolio_web/constants/colors.dart';
 import 'package:portfolio_web/utilities/url_launcher_util.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-// Import the helper
 
 class ProjectsSection extends StatelessWidget {
-  final List<ProjectCard> projects = [
-    const ProjectCard(
-      title: 'NayaPay Clone',
-      description: 'A complete clone of leading Fintech company ...',
-      githubUrl: 'https://github.com/31SUFI/NayaPay_Clone',
-      imageUrl: 'assets/images/nayapay.png', // Specify the image path
-    ),
-    const ProjectCard(
-      title: 'Bookify',
-      description: 'A user-friendly books library and managemant app...',
-      githubUrl: 'https://github.com/31SUFI/Bookify',
-      imageUrl: 'assets/images/bookify.png', // Specify the image path
-    ),
-    const ProjectCard(
-      title: 'Project 03',
-      description: 'An open-source project for time management...',
-      githubUrl: 'https://github.com/yourusername/project03',
-      imageUrl: 'assets/images/project03.png', // Specify the image path
-    ),
-  ];
-
   ProjectsSection({super.key});
 
   @override
@@ -71,7 +51,9 @@ class ProjectsSection extends StatelessWidget {
                   childAspectRatio: 4 / 3,
                 ),
                 itemCount: projects.length,
-                itemBuilder: (context, index) => projects[index],
+                itemBuilder: (context, index) => ProjectCard(
+                  project: projects[index],
+                ),
               )
             else if (constraints.maxWidth >= 700)
               GridView.builder(
@@ -84,7 +66,9 @@ class ProjectsSection extends StatelessWidget {
                   childAspectRatio: 4 / 3,
                 ),
                 itemCount: projects.length,
-                itemBuilder: (context, index) => projects[index],
+                itemBuilder: (context, index) => ProjectCard(
+                  project: projects[index],
+                ),
               )
             else
               Center(
@@ -101,7 +85,9 @@ class ProjectsSection extends StatelessWidget {
                       childAspectRatio: 3 / 2,
                     ),
                     itemCount: projects.length,
-                    itemBuilder: (context, index) => projects[index],
+                    itemBuilder: (context, index) => ProjectCard(
+                      project: projects[index],
+                    ),
                   ),
                 ),
               ),
@@ -113,18 +99,9 @@ class ProjectsSection extends StatelessWidget {
 }
 
 class ProjectCard extends StatelessWidget {
-  final String title;
-  final String description;
-  final String githubUrl;
-  final String imageUrl; // New image attribute
+  final Project project;
 
-  const ProjectCard({
-    super.key,
-    required this.title,
-    required this.description,
-    required this.githubUrl,
-    required this.imageUrl, // Initialize the image attribute
-  });
+  const ProjectCard({super.key, required this.project});
 
   @override
   Widget build(BuildContext context) {
@@ -149,14 +126,13 @@ class ProjectCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Use the imageUrl attribute for the image
           Container(
             width: double.infinity,
             height: 130,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(
-                image: AssetImage(imageUrl),
+                image: AssetImage(project.imageUrl),
                 fit: BoxFit.cover,
               ),
             ),
@@ -164,7 +140,7 @@ class ProjectCard extends StatelessWidget {
           const SizedBox(height: 10),
           Center(
             child: Text(
-              title,
+              project.title,
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -176,7 +152,7 @@ class ProjectCard extends StatelessWidget {
           Expanded(
             child: Center(
               child: Text(
-                description,
+                project.description,
                 style: const TextStyle(
                   fontSize: 14,
                   color: Colors.white70,
@@ -189,9 +165,9 @@ class ProjectCard extends StatelessWidget {
           Align(
             alignment: Alignment.bottomRight,
             child: GestureDetector(
-              onTap: () => URLLauncher.launchURL(githubUrl),
+              onTap: () => URLLauncher.launchURL(project.githubUrl),
               child: const Padding(
-                padding: EdgeInsets.only(bottom: 8.0, right: 8.0),
+                padding: EdgeInsets.only(bottom: 8.0),
                 child: Text(
                   "Show on GitHub",
                   style: TextStyle(

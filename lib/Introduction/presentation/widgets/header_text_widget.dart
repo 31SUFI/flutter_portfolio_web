@@ -1,7 +1,7 @@
 // lib/Introduction/presentation/widgets/header_text_widget.dart
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/Introduction/presentation/widgets/TypingTextSwitcher.dart';
-import 'package:portfolio_web/screens/widgets/text_widet.dart';
+import 'package:portfolio_web/widgets/text_widet.dart';
 
 class HeaderTextWidget extends StatelessWidget {
   final Size size;
